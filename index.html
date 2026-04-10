@@ -66,7 +66,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 80px 20px 20px 20px; /* Added top padding for nav */
+            padding: 80px 20px 20px 20px;
+            position: relative; /* Aggiungi questa riga */
         }
 
         /* NEW: Hero Card to improve readability */
@@ -150,6 +151,37 @@
             box-shadow: 0 5px 15px rgba(79, 209, 197, 0.2);
         }
 
+        /* SCROLL INDICATOR */
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+        .scroll-down:hover {
+            opacity: 1;
+        }
+        .scroll-down a {
+            color: #4fd1c5;
+            text-decoration: none;
+            font-size: 2rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-7px) translateX(-50%);
+            }
+        }
+        
         /* SECTION CONTAINERS */
         .container {
             max-width: 1000px;
@@ -266,6 +298,11 @@
                 <img src="img/profile.jpg" alt="Carmelo Pirosa">
             </div>
         </div>
+
+        <div class="scroll-down">
+            <a href="#about">↓</a>
+        </div>
+        
     </header>
 
     <div class="container">
