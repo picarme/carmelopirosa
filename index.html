@@ -9,12 +9,16 @@
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
 
     <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Compensa l'altezza della navbar */
+        }
+        
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #e6edf3;
             background-color: #020617; /* Fallback color */
-            scroll-behavior: smooth;
         }
 
         /* FIXED BACKGROUND */
@@ -215,7 +219,7 @@
             color: #6b7280;
             background: rgba(10, 15, 28, 0.9);
         }
-
+      
         @media (max-width: 768px) {
             .hero-card {
                 padding: 30px;
