@@ -406,7 +406,7 @@
             .then(data => {
                 const container = document.getElementById("repo-container");
                 // Get the first 6 non-forked repositories
-                const repos = data.filter(repo => !repo.fork && repo.name !== "picarme.github.io").slice(0, 6);
+                const repos = data.filter(repo => !repo.fork && repo.name !== "carmelopirosa").slice(0, 6);
                 
                 repos.forEach(repo => {
                     const card = document.createElement("div");
