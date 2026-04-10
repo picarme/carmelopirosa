@@ -13,11 +13,11 @@
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #e6edf3;
-            background-color: #020617; /* Colore di fallback */
+            background-color: #020617; /* Fallback color */
             scroll-behavior: smooth;
         }
 
-        /* SFONDO FISSO */
+        /* FIXED BACKGROUND */
         #vanta-bg {
             position: fixed;
             top: 0;
@@ -58,20 +58,27 @@
 
         /* HERO SECTION */
         header {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0 20px;
+            padding: 80px 20px 20px 20px; /* Added top padding for nav */
         }
 
-        .hero {
+        /* NEW: Hero Card to improve readability */
+        .hero-card {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(12px);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 60px;
-            max-width: 1100px;
+            max-width: 1000px;
             flex-wrap: wrap;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
 
         .hero-text {
@@ -80,7 +87,7 @@
         }
 
         .hero-text h1 {
-            font-size: 4rem;
+            font-size: 3.8rem;
             margin: 0;
             background: linear-gradient(90deg, #4fd1c5, #60a5fa);
             -webkit-background-clip: text;
@@ -95,7 +102,7 @@
         }
 
         .hero-text p {
-            color: #9ca3af;
+            color: #d1d5db; /* Slightly brighter text for readability */
             font-size: 1.1rem;
             line-height: 1.6;
             max-width: 500px;
@@ -139,11 +146,11 @@
             box-shadow: 0 5px 15px rgba(79, 209, 197, 0.2);
         }
 
-        /* CONTAINER SEZIONI */
+        /* SECTION CONTAINERS */
         .container {
             max-width: 1000px;
             margin: auto;
-            padding: 100px 20px;
+            padding: 60px 20px;
         }
 
         section {
@@ -158,7 +165,7 @@
             padding-left: 15px;
         }
 
-        /* GRID E CARDS */
+        /* GRID & CARDS */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -166,8 +173,8 @@
         }
 
         .card {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(8px);
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -177,6 +184,7 @@
         .card:hover {
             border-color: #4fd1c5;
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(79, 209, 197, 0.15);
         }
 
         .card h3 {
@@ -209,9 +217,17 @@
         }
 
         @media (max-width: 768px) {
+            .hero-card {
+                padding: 30px;
+                text-align: center;
+            }
             .hero-text h1 { font-size: 2.8rem; }
-            .hero { text-align: center; }
             .hero-buttons { justify-content: center; }
+            nav {
+                flex-wrap: wrap;
+                font-size: 0.8rem;
+            }
+            nav a { margin: 5px 10px; }
         }
     </style>
 </head>
@@ -230,20 +246,20 @@
     </nav>
 
     <header>
-        <div class="hero">
+        <div class="hero-card">
             <div class="hero-text">
                 <h1>Carmelo Pirosa</h1>
                 <h2>Systems Engineer</h2>
                 <p>
-                    Specializzato nello sviluppo di sistemi avionici safety-critical presso <b>Leonardo S.p.A.</b> Esperto in Requirements Engineering e processi V-cycle.
+                    Specialized in the development of safety-critical avionics systems at <b>Leonardo S.p.A.</b> Experienced in Requirements Engineering, system architecture, and V-cycle validation processes.
                 </p>
                 <div class="hero-buttons">
                     <a href="Carmelo_Pirosa_resume.pdf" class="btn primary" target="_blank">Download CV</a>
-                    <a href="#projects" class="btn outline">Progetti</a>
+                    <a href="#projects" class="btn outline">View Projects</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="profile.jpg" alt="Carmelo Pirosa">
+                <img src="img/profile.jpg" alt="Carmelo Pirosa">
             </div>
         </div>
     </header>
@@ -254,53 +270,53 @@
             <h2 class="section-title">About Me</h2>
             <div class="card">
                 <p>
-                    Ingegnere dei Sistemi con solida esperienza nel settore aerospaziale. Mi occupo della definizione dell'architettura di sistemi di controllo del volo, gestione dei requisiti (IBM DOORS) e attività di verifica e validazione. Ho una formazione in Ingegneria Meccatronica focalizzata su sistemi hardware ed embedded.
+                    Systems Engineer with solid experience in the aerospace sector. I specialize in flight control system architecture definition, requirements management (IBM DOORS), and verification & validation activities within the V-cycle development process. My academic background is in Mechatronic Engineering with a strong focus on hardware and embedded systems.
                 </p>
             </div>
         </section>
 
         <section id="experience">
-            <h2 class="section-title">Esperienza Professionale</h2>
+            <h2 class="section-title">Professional Experience</h2>
             <div class="grid">
                 <div class="card">
                     <h3>Leonardo S.p.A.</h3>
-                    <p><strong>System Engineer</strong> | 2022 - Presente</p>
+                    <p><strong>System Engineer</strong> | 2022 - Present</p>
                     <ul>
-                        <li>Architettura di sistemi avionici safety-critical.</li>
-                        <li>Definizione requisiti hardware e tracciabilità.</li>
-                        <li>Test ambientali ed EMC (DO-160).</li>
-                        <li>Supporto all'integrazione di prototipi FCC.</li>
+                        <li>Architecture definition for safety-critical avionics systems (FCC).</li>
+                        <li>Hardware requirements definition and traceability.</li>
+                        <li>Environmental and EMC testing execution (DO-160).</li>
+                        <li>System integration and troubleshooting support.</li>
                     </ul>
                 </div>
                 <div class="card">
                     <h3>Cluster Azure Reply</h3>
                     <p><strong>Technology Consultant</strong> | 2019 - 2021</p>
                     <ul>
-                        <li>Progetti di digital transformation su Microsoft Azure.</li>
-                        <li>Sviluppo soluzioni Power Platform e SharePoint.</li>
+                        <li>Supported enterprise digital transformation projects using Microsoft Azure.</li>
+                        <li>Implemented solutions using Power Platform and SharePoint Online.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section id="education">
-            <h2 class="section-title">Formazione</h2>
+            <h2 class="section-title">Education</h2>
             <div class="grid">
                 <div class="card">
                     <h3>Politecnico di Torino</h3>
-                    <p>Laurea Magistrale in Ingegneria Meccatronica</p>
-                    <p><em>Voto: 110/110</em></p>
+                    <p>Master's Degree in Mechatronic Engineering</p>
+                    <p><em>Final grade: 110/110</em></p>
                 </div>
                 <div class="card">
-                    <h3>Università di Catania</h3>
-                    <p>Laurea Triennale in Ingegneria Informatica</p>
-                    <p><em>Voto: 107/110</em></p>
+                    <h3>Università degli Studi di Catania</h3>
+                    <p>Bachelor's Degree in Computer Engineering</p>
+                    <p><em>Final grade: 107/110</em></p>
                 </div>
             </div>
         </section>
 
         <section id="skills">
-            <h2 class="section-title">Competenze Tecniche</h2>
+            <h2 class="section-title">Technical Skills</h2>
             <div class="card">
                 <h3>Engineering & Tools</h3>
                 <span class="tag">Systems Engineering</span>
@@ -316,7 +332,7 @@
         </section>
 
         <section id="certifications">
-            <h2 class="section-title">Certificazioni</h2>
+            <h2 class="section-title">Certifications</h2>
             <div class="grid">
                 <div class="card" style="padding: 20px;">
                     <p><strong>IELTS Academic:</strong> Band 6.5</p>
@@ -328,19 +344,19 @@
         </section>
 
         <section id="projects">
-            <h2 class="section-title">Progetti Ingegneristici</h2>
+            <h2 class="section-title">Engineering Projects</h2>
             <div class="grid">
                 <div class="card">
                     <h3>Flight Control Qualification</h3>
-                    <p>Qualificazione di unità safety-critical tramite test ambientali ed EMC secondo standard DO-160.</p>
+                    <p>Qualification of safety-critical units through environmental and EMC testing according to DO-160 standards.</p>
                 </div>
                 <div class="card">
                     <h3>Radar Human Localization</h3>
-                    <p>Tesi Magistrale: Valutazione di sensori radar Infineon e TI per la localizzazione indoor (MATLAB).</p>
+                    <p>Master Thesis: Evaluation of Infineon and TI radar sensors for indoor human localization using MATLAB.</p>
                 </div>
                 <div class="card">
                     <h3>Chaotic Networks Control</h3>
-                    <p>Tesi Triennale: Analisi dell'effetto Blinking sul controllo di sincronizzazione in reti caotiche.</p>
+                    <p>Bachelor Thesis: Analysis of the Blinking Effect on synchronization control in chaotic networks.</p>
                 </div>
             </div>
         </section>
@@ -352,10 +368,10 @@
         </section>
 
         <section id="contact">
-            <h2 class="section-title">Contatti</h2>
+            <h2 class="section-title">Contact</h2>
             <div class="card" style="text-align: center;">
-                <p>Email: <a href="mailto:cpirosa0@gmail.com" style="color:#4fd1c5;">cpirosa0@gmail.com</a></p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/carmelo-pirosa" target="_blank" style="color:#4fd1c5;">linkedin.com/in/carmelo-pirosa</a></p>
+                <p>Email: <a href="mailto:cpirosa0@gmail.com" style="color:#4fd1c5; text-decoration:none;">cpirosa0@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/in/carmelo-pirosa" target="_blank" style="color:#4fd1c5; text-decoration:none;">linkedin.com/in/carmelo-pirosa</a></p>
             </div>
         </section>
 
@@ -375,8 +391,8 @@
             minWidth: 200.00,
             scale: 1.00,
             scaleMobile: 1.00,
-            color: 0x4fd1c5, /* Verde acqua */
-            backgroundColor: 0x020617 /* Blu scuro profondo */
+            color: 0x4fd1c5, /* Teal/Cyan */
+            backgroundColor: 0x020617 /* Deep Dark Blue */
         })
     </script>
 
@@ -385,7 +401,7 @@
             .then(res => res.json())
             .then(data => {
                 const container = document.getElementById("repo-container");
-                // Prendi i primi 6 repository non-fork
+                // Get the first 6 non-forked repositories
                 const repos = data.filter(repo => !repo.fork).slice(0, 6);
                 
                 repos.forEach(repo => {
@@ -393,13 +409,13 @@
                     card.className = "card";
                     card.innerHTML = `
                         <h3>${repo.name}</h3>
-                        <p>${repo.description || "Nessuna descrizione disponibile."}</p>
-                        <a href="${repo.html_url}" target="_blank" style="color:#4fd1c5; text-decoration:none; font-weight:bold;">Vedi Repository →</a>
+                        <p>${repo.description || "No description available."}</p>
+                        <a href="${repo.html_url}" target="_blank" style="color:#4fd1c5; text-decoration:none; font-weight:bold;">View Repository →</a>
                     `;
                     container.appendChild(card);
                 });
             })
-            .catch(err => console.error("Errore caricamento GitHub", err));
+            .catch(err => console.error("Error loading GitHub repos", err));
     </script>
 
 </body>
