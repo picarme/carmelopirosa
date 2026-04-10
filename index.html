@@ -58,6 +58,27 @@ header p {
   color: #9ca3af;
 }
 
+  /* HERO */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-image img {
+  width: 220px;
+  border-radius: 50%;
+  border: 3px solid #4fd1c5;
+  box-shadow: 0 0 25px rgba(79,209,197,0.4);
+}
+  
 /* CONTAINER */
 .container {
   max-width: 1000px;
@@ -122,9 +143,27 @@ footer {
 </nav>
 
 <header>
-  <h1>Carmelo Pirosa</h1>
-  <p>Systems Engineer | Avionics & Robotics</p>
-  <p>Designing safety-critical and autonomous systems</p>
+  <div class="hero">
+
+    <div class="hero-text">
+      <h1>Carmelo Pirosa</h1>
+      <h2>Systems Engineer | Avionics & Robotics</h2>
+      <p>
+        Designing safety-critical systems for aerospace applications,
+        with a growing focus on robotics and autonomous systems.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="cv-carmelo-pirosa.pdf" class="btn primary">View CV</a>
+        <a href="#projects" class="btn outline">Projects</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="profile.jpg" alt="Carmelo Pirosa">
+    </div>
+
+  </div>
 </header>
 
 <div class="container">
