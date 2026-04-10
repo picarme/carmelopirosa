@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carmelo Pirosa | Systems Engineer</title>
+
+<style>
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #0b0f1a, #020617);
+  color: #e6edf3;
+  scroll-behavior: smooth;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  background: rgba(10,15,28,0.7);
+  backdrop-filter: blur(10px);
+}
+
+nav a {
+  margin: 0 15px;
+  color: #9ca3af;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #4fd1c5;
+}
+
+/* HERO */
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 3.5rem;
+  margin: 0;
+  background: linear-gradient(90deg, #4fd1c5, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: #9ca3af;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 100px 20px;
+}
+
+/* CARDS GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #111827;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(79,209,197,0.3);
+}
+
+/* TITLES */
+h2 {
+  color: #4fd1c5;
+}
+
+/* TAG */
+.tag {
+  display: inline-block;
+  background: #1f2937;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 6px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#github">GitHub</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header>
+  <h1>Carmelo Pirosa</h1>
+  <p>Systems Engineer | Avionics & Robotics</p>
+  <p>Designing safety-critical and autonomous systems</p>
+</header>
+
+<div class="container">
+
+<section id="about">
+  <h2>About</h2>
+  <p>
+    Systems Engineer at Leonardo S.p.A. working on flight control systems and safety-critical avionics.
+    Expanding into robotics and autonomous systems using ROS2.
+  </p>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Leonardo S.p.A.</h3>
+      <p>Systems Engineer — 2022 → Present</p>
+      <p>
+        Working on safety-critical avionics systems for flight control computers.
+      </p>
+      <ul>
+        <li>System architecture definition</li>
+        <li>Verification & Validation (V-cycle)</li>
+        <li>DO-160 environmental & EMC testing</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Azure Reply</h3>
+      <p>Technology Consultant — 2019 → 2021</p>
+      <p>Cloud solutions and digital transformation projects.</p>
+    </div>
+
+  </div>
+</section>
+
+  <section id="education">
+  <h2>Education</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Politecnico di Torino</h3>
+      <p>MSc Mechatronic Engineering</p>
+      <p>Final grade: 110/110</p>
+    </div>
+
+    <div class="card">
+      <h3>University of Catania</h3>
+      <p>BSc Computer Engineering</p>
+      <p>Final grade: 107/110</p>
+    </div>
+
+  </div>
+</section>
+
+  <section id="skills">
+  <h2>Skills</h2>
+
+  <div class="card">
+    <h3>Core Engineering</h3>
+    <span class="tag">Systems Engineering</span>
+    <span class="tag">Embedded Systems</span>
+    <span class="tag">Verification & Validation</span>
+    <span class="tag">Avionics</span>
+  </div>
+
+  <div class="card">
+    <h3>Programming</h3>
+    <span class="tag">C</span>
+    <span class="tag">Python</span>
+    <span class="tag">MATLAB</span>
+  </div>
+
+  <div class="card">
+    <h3>Tools & Technologies</h3>
+    <span class="tag">ROS2</span>
+    <span class="tag">Simulink</span>
+    <span class="tag">IBM DOORS</span>
+    <span class="tag">LTSpice</span>
+  </div>
+
+</section>
+  
+<section id="projects">
+  <h2>Highlighted Projects</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Radar Indoor Localization</h3>
+      <p>Master thesis using radar sensors for human detection</p>
+    </div>
+
+    <div class="card">
+      <h3>Control Systems Design</h3>
+      <p>Synchronization control in chaotic networks</p>
+    </div>
+
+    <div class="card">
+      <h3>ROS2 Obstacle Avoidance</h3>
+      <p>Autonomous navigation project (in progress)</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="github">
+  <h2>GitHub Projects</h2>
+  <div id="repo-container" class="grid"></div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: cpirosa0@gmail.com</p>
+</section>
+
+</div>
+
+<footer>
+  © 2026 Carmelo Pirosa
+</footer>
+
+<script>
+
+/* 🔗 AUTO LOAD GITHUB REPOS */
+fetch("https://api.github.com/users/theMeno0/repos")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("repo-container");
+
+    data.slice(0,6).forEach(repo => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description || "No description available"}</p>
+        <a href="${repo.html_url}" target="_blank">View Repo →</a>
+      `;
+
+      container.appendChild(card);
+    });
+  });
+
+</script>
+
+</body>
+</html>
