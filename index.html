@@ -436,28 +436,59 @@
             backgroundColor: 0x020617 /* Deep Dark Blue */
         })
     </script>
-
+    
     <script>
-        fetch("https://api.github.com/users/picarme/repos")
-            .then(res => res.json())
-            .then(data => {
-                const container = document.getElementById("repo-container");
-                // Get the first 6 non-forked repositories
-                const repos = data.filter(repo => !repo.fork && repo.name !== "carmelopirosa").slice(0, 6);
-                
-                repos.forEach(repo => {
-                    const card = document.createElement("div");
-                    card.className = "card";
-                    card.innerHTML = `
-                        <h3>${repo.name}</h3>
-                        <p>${repo.description || "No description available."}</p>
-                        <a href="${repo.html_url}" target="_blank" style="color:#4fd1c5; text-decoration:none; font-weight:bold;">View Repository →</a>
-                    `;
-                    container.appendChild(card);
-                });
-            })
-            .catch(err => console.error("Error loading GitHub repos", err));
-    </script>
+            const collaboratedRepos = [
+                "TmasNoemi/gesture-driven-robot"
+            ];
+    
+            // 2. Prepariamo le richieste per le API
+            const myReposRequest = fetch("https://api.github.com/users/picarme/repos").then(res => res.json());
+            
+            const collabRequests = collaboratedRepos.map(repo => 
+                fetch(`https://api.github.com/repos/${repo}`).then(res => {
+                    if (!res.ok) return null; // Se c'è un errore (es. repo privato), ignora
+                    return res.json();
+                })
+            );
+    
+            // 3. Eseguiamo tutte le richieste insieme
+            Promise.all([myReposRequest, ...collabRequests])
+                .then(results => {
+                    const myReposData = results[0]; // I tuoi repository
+                    const collabReposData = results.slice(1).filter(repo => repo !== null); // I repo esterni validi
+    
+                    // Filtriamo i tuoi repository (escludiamo i fork e il sito web stesso)
+                    let myFilteredRepos = [];
+                    if (Array.isArray(myReposData)) {
+                        myFilteredRepos = myReposData.filter(repo => !repo.fork && repo.name !== "picarme.github.io");
+                    }
+    
+                    // Uniamo i tuoi repo con quelli in cui collabori
+                    const allRepos = [...collabReposData, ...myFilteredRepos].slice(0, 6);
+    
+                    // Disegniamo le card
+                    const container = document.getElementById("repo-container");
+                    container.innerHTML = ""; // Pulisce eventuali caricamenti precedenti
+    
+                    if (allRepos.length === 0) {
+                        container.innerHTML = "<p>Nessun repository pubblico trovato.</p>";
+                        return;
+                    }
+    
+                    allRepos.forEach(repo => {
+                        const card = document.createElement("div");
+                        card.className = "card";
+                        card.innerHTML = `
+                            <h3>${repo.name}</h3>
+                            <p>${repo.description || "Nessuna descrizione disponibile."}</p>
+                            <a href="${repo.html_url}" target="_blank" style="color:#4fd1c5; text-decoration:none; font-weight:bold;">Vedi Repository →</a>
+                        `;
+                        container.appendChild(card);
+                    });
+                })
+                .catch(err => console.error("Errore caricamento GitHub", err));
+        </script>
 
 </body>
 </html>
